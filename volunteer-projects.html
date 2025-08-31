@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Volunteer Projects - Harishan</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #333; margin: 0; }
+    section { padding: 3rem 2rem; max-width: 1100px; margin: auto; }
+    h2 { text-align: center; margin-bottom: 2rem; font-size: 2rem; }
+    .project { background: white; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); padding: 1.5rem; margin-bottom: 2rem; }
+    .project h3 { margin-bottom: 0.5rem; font-size: 1.4rem; }
+    .project p { margin-bottom: 1rem; font-size: 1rem; color: #555; }
+    .project ul { margin-left: 1.2rem; margin-bottom: 1rem; }
+    .project ul li { margin-bottom: 0.6rem; line-height: 1.6; }
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem; }
+    .gallery img { width: 100%; border-radius: 8px; height: 200px; object-fit: cover; transition: transform 0.3s ease; cursor: pointer; }
+    .gallery img:hover { transform: scale(1.05); }
+    /* Lightbox Modal */
+    .modal { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; }
+    .modal img { max-width: 90%; max-height: 90%; border-radius: 10px; }
+    .modal.show { display: flex; }
+  </style>
+</head>
+<body>
+  <section>
+    <h2>Volunteer Projects</h2>
+
+    <div class="project">
+      <h3>Student Volunteer — Refugee Awareness & Government Projects</h3>
+      <p><strong>Organization for Eelam Refugees Rehabilitation (OfERR) — Chennai</strong><br>
+      <em>April 2023 – Present</em></p>
+
+      <ul>
+        <li>Contributed to a 6-month government data entry project focused on registering Sri Lankan refugees, ensuring accurate and timely data collection.</li>
+        <li>Assisted in a two-day marriage registration project under Tamil Nadu government directives, acquiring skills in event management, data entry, and official documentation.</li>
+        <li>Supported documentation and preparation of the organization’s annual report, including contributions to an Australian awareness campaign focused on refugee welfare.</li>
+        <li>Coordinated and designed awareness content, posters, and digital flyers to enhance outreach and engagement within refugee communities.</li>
+      </ul>
+
+      <div class="gallery">
+        <img src="C:\Users\LENOVO\OneDrive\Desktop\PORTFOLIO\New folder\images\volunteer-work-4-easy-tips-for-the-entire-family_7ggnwbn.jpg" alt="Awareness Campaign">
+        <img src="C:\Users\LENOVO\OneDrive\Desktop\PORTFOLIO\New folder\images\WF136160_BGD_20171213_WFP-Saikat_Mojumder_4652_Medium_res.jpg"alt="Government Data Entry">
+        <img src="C:\Users\LENOVO\OneDrive\Desktop\PORTFOLIO\New folder\images\1682502186-Humanitirian-AID-01.png" alt="Refugee Community Event">
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div class="modal" id="imgModal">
+    <img src="" id="modalImg" alt="Popup Image">
+  </div>
+
+  <script>
+    const modal = document.getElementById("imgModal");
+    const modalImg = document.getElementById("modalImg");
+    document.querySelectorAll(".gallery img").forEach(img => {
+      img.addEventListener("click", () => {
+        modal.classList.add("show");
+        modalImg.src = img.src;
+      });
+    });
+    modal.addEventListener("click", () => { modal.classList.remove("show"); });
+  </script>
+</body>
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harishan | Designer Portfolio</title>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --bg: #f4f4f4;
+      --text: #1f1f1f;
+      --card: #ffffff;
+      --accent: #4ad4c9;
+    }
+    body.dark {
+      --bg: #121212;
+      --text: #f0f0f0;
+      --card: #1f1f1f;
+      --accent: #6ee7b7;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: 0.3s;
+    }
+
+    /* ==== HEADER WITH VIDEO ==== */
+    header {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+    #bgVideo {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+    header::after {
+      content: "";
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.55);
+      z-index: -1;
+    }
+    header .overlay { position: relative; z-index: 2; }
+    header h1 { font-size: 3rem; letter-spacing: 2px; margin-bottom: 0.5rem; }
+    header p { font-size: 1.3rem; color: #eee; }
+    #darkToggle {
+      margin-top: 1.2rem;
+      background: var(--accent);
+      border: none; color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    /* ==== NAVIGATION ==== */
+    nav {
+      position: sticky; top: 0; background: var(--card); z-index: 1000;
+      display: flex; justify-content: center; padding: 0.8rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    nav a {
+      color: var(--text); text-decoration: none; margin: 0 1rem; font-weight: 500;
+      display: inline-flex; align-items: center; gap: 0.4rem; transition: 0.3s;
+    }
+    nav a:hover { color: var(--accent); }
+
+    /* ==== SECTIONS ==== */
+    section { padding: 3rem 2rem; max-width: 960px; margin: auto; }
+    h2 { text-align: center; margin-bottom: 1.5rem; font-size: 2rem; position: relative; }
+    h2::after {
+      content: ""; display: block; width: 60px; height: 3px; background: var(--accent);
+      margin: 0.6rem auto 0;
+    }
+    .about { text-align: center; }
+    .resume-btn {
+      display: inline-block; background: var(--accent); color: white; padding: 10px 20px;
+      border-radius: 8px; margin-top: 1rem; text-decoration: none; font-weight: bold;
+    }
+
+    /* ==== SKILLS ==== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .skill {
+      background: var(--card);
+      padding: 1.2rem;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .skill:hover { transform: translateY(-5px); }
+    .skill i {
+      font-size: 2rem; color: var(--accent); margin-bottom: 0.6rem;
+    }
+
+    /* ==== TIMELINE ==== */
+    .timeline { border-left: 3px solid var(--accent); padding-left: 1.5rem; margin-top: 1rem; }
+    .timeline-item { margin-bottom: 1.2rem; position: relative; }
+    .timeline-item::before { content: ""; position: absolute; left: -11px; top: 4px;
+      width: 16px; height: 16px; background: var(--accent); border-radius: 50%; }
+    .timeline-item h3 { font-size: 1.2rem; margin-bottom: 0.3rem; display: flex; align-items: center; gap: 0.5rem; }
+    .timeline-item span { font-size: 0.9rem; color: #888; }
+
+    /* ==== PROJECTS ==== */
+    .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem; margin-top: 1.5rem; }
+    .project { background: var(--card); border-radius: 12px; overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1); transition: 0.3s ease; cursor: pointer; }
+    .project:hover { transform: translateY(-5px); }
+    .project img { width: 100%; height: 180px; object-fit: cover; }
+    .project .content { padding: 1rem; }
+
+    /* ==== CONTACT ==== */
+    .contact {
+      background: var(--card);
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      padding: 2rem;
+      max-width: 600px;
+      margin: 2rem auto;
+      text-align: center;
+    }
+    .contact h2 { margin-bottom: 1rem; }
+    .contact p { margin: 0.5rem 0; }
+    .contact a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    .contact i { margin-right: 0.4rem; }
+
+    footer { text-align: center; padding: 1rem; font-size: 0.9rem; color: #777; margin-top: 1.5rem; }
+  </style>
+</head>
+<body>
+  <!-- ===== HEADER WITH VIDEO ===== -->
+  <header>
+    <video autoplay muted loop playsinline id="bgVideo">
+      <source src="C:\Users\LENOVO\OneDrive\Desktop\PORTFOLIO\New folder\images\170480-843367912.mp4" type="video/mp4">
+      <!-- fallback image -->
+      <img src="images/fallback.jpg" alt="Background">
+    </video>
+    <div class="overlay">
+      <h1>HARISHAN MOHAN</h1>
+      <p>Graphic Designer | Prompt Engineer | Copywriter</p>
+      <button id="darkToggle">🌙 Dark Mode</button>
+    </div>
+  </header>
+
+  <!-- ===== NAV ===== -->
+  <nav>
+    <a href="#about"><i class="fa-solid fa-user"></i> About</a>
+    <a href="#skills"><i class="fa-solid fa-gears"></i> Skills</a>
+    <a href="#experience"><i class="fa-solid fa-briefcase"></i> Experience</a>
+    <a href="#education"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+    <a href="#internship"><i class="fa-solid fa-laptop-code"></i> Internship</a>
+    <a href="#projects"><i class="fa-solid fa-image"></i> Projects</a>
+    <a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+  </nav>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <p>3rd-year Engineering undergraduate with a foundation in digital technologies, data analytics, and content creation. Skilled in web & graphic design, copywriting, and CMS management. Experienced in volunteer outreach and event coordination, with strong communication, creativity, and time management skills.</p>
+    <a class="resume-btn" href="C:\Users\LENOVO\OneDrive\Desktop\PORTFOLIO\New folder\images\HARISHAN MOHAN CV.pdf" download><i class="fa-solid fa-download"></i> Download Resume</a>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill"><i class="fa-solid fa-paintbrush"></i><p>Adobe Photoshop & Illustrator</p></div>
+      <div class="skill"><i class="fa-solid fa-code"></i><p>Web Design & Management</p></div>
+      <div class="skill"><i class="fa-solid fa-pen-nib"></i><p>Copywriting & Content Writing</p></div>
+      <div class="skill"><i class="fa-solid fa-table"></i><p>Data Entry & Excel</p></div>
+      <div class="skill"><i class="fa-solid fa-chart-line"></i><p>Market Research & Analytics</p></div>
+      <div class="skill"><i class="fa-solid fa-robot"></i><p>Prompt Engineering</p></div>
+      <div class="skill"><i class="fa-solid fa-user-check"></i><p>Independent Work Ethic</p></div>
+      <div class="skill"><i class="fa-solid fa-lightbulb"></i><p>Creativity & Problem-Solving</p></div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE ===== -->
+  <section id="experience">
+    <h2>Professional & Volunteer Experience</h2>
+    <div class="timeline">
+      
+        <h3><i class="fa-solid fa-briefcase"></i> Prompt Engineer | Soul AI</h3>
+        <span>June 2025 – Present</span>
+        <p>Created and optimized high-performing prompts for generative AI tools, built reusable libraries, and collaborated with teams for AI-driven solutions.</p>
+        <li>Built reusable prompt libraries and documented workflows for internal teams and clients.</li>
+        <li>Carryout with teams to deliver AI-driven solutions tailored to client needs</li>
+      </div>
+
+    <div class="timeline">
+        <h3><i class="fa-solid fa-pen"></i> Copywriter | IPSEN Technologies</h3>
+        <span>June 2024 – Aug 2024</span>
+        <p>Wrote SEO-optimized content, collaborated with designers, and applied keyword research to boost organic reach.</p>
+        <li>United with designers and marketing teams to align content with brand voice and visual identity</li>
+        <li>Cooperated keyword research and applied SEO best practices to increase organic reach and website
+traffic</li>
+      </div>
+
+    <div class="timeline">
+        <h3><i class="fa-solid fa-hands-helping"></i> Student Volunteer | Oraganization for Eelam Refugees Rehabilitation</h3>
+        <span>Apr 2023 – Present</span>
+          <p>Supported refugee education, humanitarian aid, awareness campaigns, and designed awareness materials.</p>
+        <li> Assisted in event coordination, logistics, and communication for workshops and social initiatives
+              focused on refugee welfare and integration</li>
+        <li>Collaborated with cross-functional volunteer teams to plan and execute local engagement projects</li>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EDUCATION ===== -->
+  <section id="education">
+    <h2>Education</h2>
+    <div class="timeline">
+        <h3><i class="fa-solid fa-graduation-cap"></i> B.E. Electronics & Communication</h3>
+        <span>Annai Veilankanni’s College of Engineering | 2023 – 2027</span>
+      </div>
+    <div class="timeline">
+        <h3><i class="fa-solid fa-school"></i> Higher Secondary School</h3>
+        <span>Mary Immaculate Heart Matric Hr Sec School | 2008 – 2019</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== INTERNSHIP ===== -->
+  <section id="internship">
+    <h2>Internship</h2>
+    <div class="timeline">
+        <h3><i class="fa-solid fa-laptop-code"></i> Data Science Intern | CodSoft</h3>
+        <span>Aug 2025 – Present</span>
+        <p>Worked on Titanic Survival Prediction, Iris Flower Classification, and Movie Rating Prediction projects with ML, preprocessing, and visualization techniques.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LEADERSHIP ===== -->
+  <section>
+    <h2>Leadership & Campus Engagement</h2>
+    <div class="timeline">
+        <h3><i class="fa-solid fa-users"></i> Campus Ambassador | Internshala Trainings (Remote)</h3>
+        <span>June 2024 – July 2024</span>
+        <p>Promoted Internshala's online training programs through digital marketing, word-of-mouth, and campus outreach initiatives.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <a class="project" href="Datascience.html" target="_blank">
+        <img src="C:\Users\LENOVO\OneDrive\Desktop\PORTFOLIO\New folder\images\1_qt7DPJyjsTpg36max0KQSQ.png" alt="Data Science" />
+        <div class="content">
+          <h3><i class="fa-solid fa-database"></i> Data Science Projects</h3>
+        </div>
+      </a>
+      <a class="project" href="C:\Users\LENOVO\OneDrive\Desktop\PORTFOLIO\New folder\HTML\Design.html" target="_blank">
+        <img src="C:\Users\LENOVO\OneDrive\Desktop\PORTFOLIO\New folder\images\why-hire-a-professional-graphic-designer.jpg" alt="Design Projects" />
+        <div class="content">
+          <h3><i class="fa-solid fa-image"></i> Design Projects</h3>
+        </div>
+      </a>
+      <a class="project" href="volunteer-projects.html" target="_blank">
+        <img src="C:\Users\LENOVO\OneDrive\Desktop\PORTFOLIO\New folder\images\people-volunteering-donating-money_53876-66112.avif" alt="Volunteer Projects"/>
+        <div class="content">
+          <h3><i class="fa-solid fa-hands-helping"></i> Volunteer Projects</h3>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="contact">
+    <h2>Let's Connect</h2>
+    <p><i class="fa-solid fa-envelope"></i> <a href="mailto:harishanhari@gmail.com">harishanhari@gmail.com</a></p>
+    <p><i class="fa-brands fa-linkedin"></i> <a href="https://www.linkedin.com/in/HarishanMohan" target="_blank">LinkedIn</a></p>
+    <p><i class="fa-brands fa-github"></i> <a href="https://github.com/Harishan2004" target="_blank">GitHub</a></p>
+    <p><i class="fa-brands fa-instagram"></i> <a href="https://www.instagram.com/_harishan_hari" target="_blank">@_harishan_hari</a></p>
+    <p><i class="fa-solid fa-phone"></i> +91 7010170714</p>
+  </section>
+
+  <footer>
+    © 2025 Harishan Mohan | All Rights Reserved
+  </footer>
+
+  <script>
+    const toggle = document.getElementById("darkToggle");
+    toggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      toggle.textContent = document.body.classList.contains("dark") ? "☀️ Light Mode" : "🌙 Dark Mode";
+    });
+  </script>
+</body>
+</html>

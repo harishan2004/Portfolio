@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Design Projects - Harishan</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      color: #333;
+    }
+    section {
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+      color: #222;
+      position: relative;
+    }
+    h2::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: #4ad4c9;
+      margin: 0.8rem auto 0;
+      border-radius: 2px;
+    }
+
+    /* Gallery Grid */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .gallery img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    }
+
+    /* Lightbox for fullscreen preview */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
+    .lightbox:target {
+      display: flex;
+    }
+    .close {
+      position: absolute;
+      top: 30px; right: 50px;
+      font-size: 2rem;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .close:hover {
+      color: #4ad4c9;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <h2>Design Projects</h2>
+    <div class="gallery">
+      <a href="#img1"><img src="C:\Users\LENOVO\OneDrive\Desktop\PORTFOLIO\New folder\images\COFFEE_POSTER_B3.jpg" alt="Design 1"></a>
+      <a href="#img2"><img src="C:\Users\LENOVO\OneDrive\Desktop\PORTFOLIO\New folder\images\CUPCAKE _POSTER-B3.jpg" alt="Design 2"></a>
+      <a href="#img3"><img src="C:\Users\LENOVO\OneDrive\Desktop\PORTFOLIO\New folder\images\independance day.jpg" alt="Design 3"></a>
+      <a href="#img4"><img src="C:\Users\LENOVO\OneDrive\Desktop\PORTFOLIO\New folder\images\Ktm Poster.jpg" alt="Design 4"></a>
+      <a href="#img5"><img src="C:\Users\LENOVO\OneDrive\Desktop\PORTFOLIO\New folder\images\messi.jpg" alt="Design 5"></a>
+      <a href="#img6"><img src="C:\Users\LENOVO\OneDrive\Desktop\PORTFOLIO\New folder\images\Moon_Naming_Ceremony_Invitation_Template-e6c324a898e00a83ca6ef059fed61cf4.jpg" alt="Design 6"></a>
+      <a href="#img7"><img src="C:\Users\LENOVO\OneDrive\Desktop\PORTFOLIO\New folder\images\people-volunteering-donating-money_53876-66112.avif" alt="Design 7"></a>
+      <a href="#img8"><img src="C:\Users\LENOVO\OneDrive\Desktop\PORTFOLIO\New folder\images\Pizza order.jpg" alt="Design 8"></a>
+      <a href="#img9"><img src="C:\Users\LENOVO\OneDrive\Desktop\PORTFOLIO\New folder\images\SYS Iron Wall.jpg" alt="Design 9"></a>
+      <a href="#img10"><img src="C:\Users\LENOVO\OneDrive\Desktop\PORTFOLIO\New folder\images\why-hire-a-professional-graphic-designer.jpg" alt="Design 10"></a>
+      <a href="#img11"><img src="C:\Users\LENOVO\OneDrive\Desktop\PORTFOLIO\New folder\images\WOMENS DAY_ POSTER _B3.jpg"alt="Design 11"></a>
+      <a href="#img12"><img src="C:\Users\LENOVO\OneDrive\Desktop\PORTFOLIO\New folder\images\BURGER_POSTER_B3.jpg" alt="Design 12"></a>
+      <a href="#img13"><img src="C:\Users\LENOVO\OneDrive\Desktop\PORTFOLIO\New folder\images\CLOUD.jpg"alt="Design 13"></a>
+      <a href="#img14"><img src="C:\Users\LENOVO\OneDrive\Desktop\PORTFOLIO\New folder\images\2Ga3H7B5HaZWqG2GUdaRSDq0t4.avif" alt="Design 14"></a>
+      <a href="#img15"><img src="C:\Users\LENOVO\OneDrive\Desktop\PORTFOLIO\New folder\images\2694ca65a8623b3a206124bf7c7ea45a.jpg" alt="Design 15"></a>
+      <a href="#img16"><img src="C:\Users\LENOVO\OneDrive\Desktop\PORTFOLIO\New folder\images\Free-Pizza-Delivery-Vintage-Style-with-Scooter-Image-poster-724x1024.jpg" alt="Design 16"></a>
+      <a href="#img17"><img src="C:\Users\LENOVO\OneDrive\Desktop\PORTFOLIO\New folder\images\page0.jpg" alt="Design 17"></a>
+      <a href="#img18"><img src="C:\Users\LENOVO\OneDrive\Desktop\PORTFOLIO\New folder\images\Unique-company-logo-design-template-2-1.webp" alt="Design 18"></a>
+      <a href="#img19"><img src="C:\Users\LENOVO\OneDrive\Desktop\PORTFOLIO\New folder\images\Black Friday sales poster.jpg" alt="Design 19"></a>
+      <a href="#img20"><img src="C:\Users\LENOVO\OneDrive\Desktop\PORTFOLIO\New folder\images\why-hire-a-professional-graphic-designer.jpg" alt="Design 20"></a>
+    </div>
+  </section>
+
+  <!-- Lightbox Previews -->
+  <div id="img1" class="lightbox"><a href="#" class="close">&times;</a><img src="images/design1.jpg" alt=""></div>
+  <div id="img2" class="lightbox"><a href="#" class="close">&times;</a><img src="images/design2.jpg" alt=""></div>
+  <div id="img3" class="lightbox"><a href="#" class="close">&times;</a><img src="images/design3.jpg" alt=""></div>
+  <div id="img4" class="lightbox"><a href="#" class="close">&times;</a><img src="images/design4.jpg" alt=""></div>
+  <div id="img5" class="lightbox"><a href="#" class="close">&times;</a><img src="images/design5.jpg" alt=""></div>
+  <div id="img6" class="lightbox"><a href="#" class="close">&times;</a><img src="images/design6.jpg" alt=""></div>
+  <div id="img7" class="lightbox"><a href="#" class="close">&times;</a><img src="images/design7.jpg" alt=""></div>
+  <div id="img8" class="lightbox"><a href="#" class="close">&times;</a><img src="images/design8.jpg" alt=""></div>
+  <div id="img9" class="lightbox"><a href="#" class="close">&times;</a><img src="images/design9.jpg" alt=""></div>
+  <div id="img10" class="lightbox"><a href="#" class="close">&times;</a><img src="images/design10.jpg" alt=""></div>
+  <div id="img11" class="lightbox"><a href="#" class="close">&times;</a><img src="images/design11.jpg" alt=""></div>
+  <div id="img12" class="lightbox"><a href="#" class="close">&times;</a><img src="images/design12.jpg" alt=""></div>
+  <div id="img13" class="lightbox"><a href="#" class="close">&times;</a><img src="images/design13.jpg" alt=""></div>
+  <div id="img14" class="lightbox"><a href="#" class="close">&times;</a><img src="images/design14.jpg" alt=""></div>
+  <div id="img15" class="lightbox"><a href="#" class="close">&times;</a><img src="images/design15.jpg" alt=""></div>
+  <div id="img16" class="lightbox"><a href="#" class="close">&times;</a><img src="images/design16.jpg" alt=""></div>
+  <div id="img17" class="lightbox"><a href="#" class="close">&times;</a><img src="images/design17.jpg" alt=""></div>
+  <div id="img18" class="lightbox"><a href="#" class="close">&times;</a><img src="images/design18.jpg" alt=""></div>
+  <div id="img19" class="lightbox"><a href="#" class="close">&times;</a><img src="C:\Users\LENOVO\OneDrive\Desktop\PORTFOLIO\New folder\images\Black Friday sales poster.jpg" alt=""></div>
+  <div id="img20" class="lightbox"><a href="#" class="close">&times;</a><img src="C:\Users\LENOVO\OneDrive\Desktop\PORTFOLIO\New folder\images\why-hire-a-professional-graphic-designer.jpg" alt=""></div>
+</body>
+</html>
