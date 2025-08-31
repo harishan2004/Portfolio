@@ -143,6 +143,148 @@
     .contact i { margin-right: 0.4rem; }
 
     footer { text-align: center; padding: 1rem; font-size: 0.9rem; color: #777; margin-top: 1.5rem; }
+
+    /* Global Defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg, #f4f4f4);
+  color: var(--text, #1f1f1f);
+  line-height: 1.6;
+}
+
+/* Sections */
+section {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Headings */
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--accent, #4ad4c9);
+  margin: 0.6rem auto 0;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;   /* allows nav items to wrap on mobile */
+  padding: 0.8rem;
+  gap: 1rem;
+  background: var(--card, #fff);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+nav a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  font-size: 1rem;
+}
+nav a:hover { color: var(--accent); }
+
+/* Skills Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+.skill {
+  background: var(--card, #fff);
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.skill i {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+}
+
+/* Projects */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+.project img {
+  width: 100%;
+  height: auto; /* keep original ratio */
+  border-radius: 8px;
+}
+
+/* Contact */
+.contact {
+  padding: 1.5rem;
+  text-align: center;
+  background: var(--card, #fff);
+  border-radius: 12px;
+  margin-top: 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.contact p {
+  margin: 0.5rem 0;
+}
+
+/* ==== RESPONSIVE QUERIES ==== */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  header p {
+    font-size: 1rem;
+  }
+  nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    height: 80vh;
+    padding: 1rem;
+  }
+  header h1 {
+    font-size: 1.6rem;
+  }
+  header p {
+    font-size: 0.9rem;
+  }
+  .projects {
+    grid-template-columns: 1fr;  /* one project per row on mobile */
+  }
+  .skills-grid {
+    grid-template-columns: 1fr;  /* single column skills */
+  }
+  .contact {
+    padding: 1rem;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -308,6 +450,7 @@
   </script>
 </body>
 </html>
+
 
 
 
